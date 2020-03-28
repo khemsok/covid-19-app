@@ -50,7 +50,7 @@ function HowYouCanHelp() {
         </Grid>
         <Grid item xs={12} md={4}>
           <a
-            href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/coronavirus-social-distancing-and-self-quarantine"
+            href="https://www.cdc.gov/handwashing/when-how-handwashing.html"
             target="_blank"
             style={{ textDecoration: "none" }}
           >
@@ -83,7 +83,7 @@ function HowYouCanHelp() {
         </Grid>
         <Grid item xs={12} md={4}>
           <a
-            href="https://www.cdc.gov/handwashing/when-how-handwashing.html"
+            href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/coronavirus-social-distancing-and-self-quarantine"
             target="_blank"
             style={{ textDecoration: "none" }}
           >
