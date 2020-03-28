@@ -27,22 +27,41 @@ function TopSection({
   const displayTopSection = dataStatus ? (
     <ExpansionPanel className="panel">
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography variant="subtitle1" style={{ flexBasis: "20%" }}>
-          <span style={{ fontWeight: 800, marginRight: "20px" }}>{index}</span>
-          {country}
-        </Typography>
+        <div className="horizontal-display" style={{ width: "100%" }}>
+          <ul
+            style={{
+              listStyleType: "none",
+              margin: "0",
+              padding: "0",
+              overflow: "hidden"
+            }}
+          >
+            <li style={{ float: "left" }}>
+              <p>
+                <span style={{ fontWeight: 800, marginRight: "20px" }}>
+                  {index}
+                </span>
+                {country}
+              </p>
+            </li>
+            <li>
+              <Tooltip title="Number of Recoveries" placement="top">
+                <p>😃 {numberWithCommas(recovered)}</p>
+              </Tooltip>
+            </li>
 
-        <ul>
-          <Tooltip title="Number of Cases" placement="top">
-            <li>😥 {numberWithCommas(cases)}</li>
-          </Tooltip>
-          <Tooltip title="Number of Deaths" placement="top">
-            <li>💀 {numberWithCommas(deaths)}</li>
-          </Tooltip>
-          <Tooltip title="Number of Recoveries" placement="top">
-            <li>😃 {numberWithCommas(recovered)}</li>
-          </Tooltip>
-        </ul>
+            <li>
+              <Tooltip title="Number of Deaths" placement="top">
+                <p>💀 {numberWithCommas(deaths)}</p>
+              </Tooltip>
+            </li>
+            <li>
+              <Tooltip title="Number of Cases" placement="top">
+                <p>😥 {numberWithCommas(cases)}</p>
+              </Tooltip>
+            </li>
+          </ul>
+        </div>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <div style={{ width: "100%" }}>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 import GlobalSection from "./GlobalSection";
+import moment from "moment";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -9,10 +10,16 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
+function convertUnixTime(unixTime) {
+  console.log(unixTime);
+  let datetime = moment(unixTime).format("lll");
+  return datetime;
+}
+
 function GlobalOverview() {
   const [allCases, setAllCases] = useState({});
   useEffect(() => {
-    fetch("https://coronavirus-19-api.herokuapp.com/all")
+    fetch("https://corona.lmao.ninja/all")
       .then(res => res.json())
       .then(data => setAllCases(data));
   }, []);
@@ -59,13 +66,11 @@ function GlobalOverview() {
     );
 
   const lastUpdated = (
-    <Grid container justify="flex-end" spacing={8}>
+    <Grid container justify="flex-end" spacing={4}>
       <Grid item xs={7} md={4}>
-        {Object.keys(allCases).length === 0 ? (
-          <LinearProgress variant="buffer" />
-        ) : (
+        {Object.keys(allCases).length === 0 ? null : (
           <Typography style={{ float: "right" }}>
-            Last Updated: 01/01/1970 00:00:00
+            Last Updated: {convertUnixTime(allCases["updated"])}
           </Typography>
         )}
       </Grid>
@@ -83,7 +88,7 @@ function GlobalOverview() {
       <Grid container justify="center" alignItems="center" spacing={4}>
         {displayGlobalSection}
       </Grid>
-      {/* {lastUpdated} */}
+      {lastUpdated}
     </Fragment>
   );
 }

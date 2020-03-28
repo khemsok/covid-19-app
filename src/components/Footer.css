@@ -1,0 +1,7 @@
+.icon-footer {
+  color: black;
+  transition: 0.2s ease-in !important;
+}
+.icon-footer:hover {
+  color: #f03a17;
+}

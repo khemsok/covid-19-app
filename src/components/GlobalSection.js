@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -23,21 +23,21 @@ function GlobalSection({ header, dataStatus, casualties }) {
   const classes = useStyles();
 
   let display = dataStatus ? (
-    <Fragment>
+    <>
       <Typography variant="caption">{header}</Typography>
       <Typography variant="h2" style={{ fontWeight: "800" }}>
         {numberWithCommas(casualties)}
       </Typography>
-    </Fragment>
+    </>
   ) : null;
 
   return (
-    <Fragment>
+    <>
       <Card className={classes.card}>
         <CardContent>{display}</CardContent>
       </Card>
       {dataStatus ? null : <LinearProgress />}
-    </Fragment>
+    </>
   );
 }
 
