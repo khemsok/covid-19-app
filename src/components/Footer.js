@@ -37,17 +37,20 @@ function Footer({ theme }) {
         }}
       >
         <li style={{ display: "inline-block", marginRight: "20px" }}>
-          <a href="https://www.linkedin.com/in/khem-sok-5a42a2165/">
+          <a
+            href="https://www.linkedin.com/in/khem-sok-5a42a2165/"
+            target="_blank"
+          >
             <LinkedInIcon className={classes.socialIcon} style={styleIcon} />
           </a>
         </li>
         <li style={{ display: "inline-block", marginRight: "20px" }}>
-          <a href="https://github.com/khemsok">
+          <a href="https://github.com/khemsok" target="_blank">
             <GitHubIcon className={classes.socialIcon} style={styleIcon} />
           </a>
         </li>
         <li style={{ display: "inline-block", marginRight: "20px" }}>
-          <a href="https://www.instagram.com/_aceeeeeee_/">
+          <a href="https://www.instagram.com/_aceeeeeee_/" target="_blank">
             <InstagramIcon className={classes.socialIcon} style={styleIcon} />
           </a>
         </li>
