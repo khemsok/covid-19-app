@@ -30,10 +30,7 @@ function Timeline() {
         .then(res => res.json())
         .then(data => setCountryArr(data.slice(0, 20)));
     }
-    console.log("HEY ITS ME");
   }, [countrySelected]);
-
-  console.log(historicalData);
 
   let historicalTransform = [];
   let autocompleteDisplay = null;
