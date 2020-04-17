@@ -18,9 +18,9 @@ function convertUnixTime(unixTime) {
 function GlobalOverview() {
   const [allCases, setAllCases] = useState({});
   useEffect(() => {
-    fetch("https://corona.lmao.ninja/all")
-      .then(res => res.json())
-      .then(data => setAllCases(data));
+    fetch("https://corona.lmao.ninja/v2/all")
+      .then((res) => res.json())
+      .then((data) => setAllCases(data));
   }, []);
 
   // let dataStatus = Object.keys(allCases).length !== 0 ? true : false;

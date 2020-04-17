@@ -11,17 +11,17 @@ function TopAffected() {
   const [allData, setAllData] = useState([]);
   const [sortSelector, setSortSelector] = useState("cases");
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setSortSelector(event.target.value);
-    fetch(`https://corona.lmao.ninja/countries?sort=${event.target.value}`)
-      .then(res => res.json())
-      .then(data => setAllData(data));
+    fetch(`https://corona.lmao.ninja/v2/countries?sort=${event.target.value}`)
+      .then((res) => res.json())
+      .then((data) => setAllData(data));
   };
 
   useEffect(() => {
-    fetch("https://corona.lmao.ninja/countries?sort=cases")
-      .then(res => res.json())
-      .then(data => setAllData(data));
+    fetch("https://corona.lmao.ninja/v2/countries?sort=cases")
+      .then((res) => res.json())
+      .then((data) => setAllData(data));
   }, []);
 
   let displayCountries =

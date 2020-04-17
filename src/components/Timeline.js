@@ -12,7 +12,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from "recharts";
 
 function Timeline() {
@@ -22,13 +22,13 @@ function Timeline() {
 
   useEffect(() => {
     fetch(`https://corona.lmao.ninja/v2/historical/${countrySelected}`)
-      .then(res => res.json())
-      .then(data => setHistoricalData(data));
+      .then((res) => res.json())
+      .then((data) => setHistoricalData(data));
 
     if (countryArr.length === 0) {
-      fetch("https://corona.lmao.ninja/countries?sort=cases")
-        .then(res => res.json())
-        .then(data => setCountryArr(data.slice(0, 20)));
+      fetch("https://corona.lmao.ninja/v2/countries?sort=cases")
+        .then((res) => res.json())
+        .then((data) => setCountryArr(data.slice(0, 20)));
     }
   }, [countrySelected]);
 
@@ -40,7 +40,7 @@ function Timeline() {
         historicalTransform.push({
           date: element,
           cases: historicalData["timeline"]["cases"][element],
-          deaths: historicalData["timeline"]["deaths"][element]
+          deaths: historicalData["timeline"]["deaths"][element],
         });
       }
     );
@@ -50,14 +50,14 @@ function Timeline() {
           style={{ width: 300 }}
           size="small"
           options={countryArr}
-          getOptionLabel={option => option.country}
+          getOptionLabel={(option) => option.country}
           defaultValue={[countryArr[0]]}
           onChange={(event, value, reason) => {
             if (reason === "select-option") {
               setCountrySelected(value["country"]);
             }
           }}
-          renderInput={params => (
+          renderInput={(params) => (
             <TextField
               {...params}
               variant="standard"
@@ -82,7 +82,7 @@ function Timeline() {
             data={historicalTransform}
             margin={{
               top: 5,
-              bottom: 5
+              bottom: 5,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
