@@ -7,8 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 function convertUnixTime(unixTime) {
-  let datetime = moment(unixTime).format("lll");
-  return moment(datetime).fromNow();
+  return moment.unix(unixTime / 1000).fromNow();
 }
 
 function GlobalOverview() {
