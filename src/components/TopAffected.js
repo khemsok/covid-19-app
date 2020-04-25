@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import TopSection from "./TopSection";
@@ -30,6 +30,7 @@ function TopAffected() {
           .slice(0, 10)
           .map((element, index) => (
             <TopSection
+              key={index}
               dataStatus={true}
               country={element["country"]}
               cases={element["cases"]}
@@ -43,7 +44,7 @@ function TopAffected() {
             />
           ))
       : [...Array(10)].map((element, index) => (
-          <TopSection dataStatus={false} />
+          <TopSection key={index} dataStatus={false} />
         ));
 
   return (
